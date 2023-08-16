@@ -54,13 +54,13 @@ const userController = {
         if (!user) throw new Error('The user does not exist')
         const dedupeComments = []
         const restaurantIdSet = new Set()
-        user.Comments.forEach(comment => {
+        user.Comments?.forEach(comment => {
           if (!restaurantIdSet.has(comment.dataValues.restaurantId)) {
             restaurantIdSet.add(comment.dataValues.restaurantId)
             dedupeComments.push(comment)
           }
         })
-        user.setDataValue('Comments', dedupeComments)
+        user.setDataValue && user.setDataValue('Comments', dedupeComments)
         res.render('users/profile', {
           user: user.toJSON()
         })
