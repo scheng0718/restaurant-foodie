@@ -6,29 +6,7 @@ const restaurantController = {
     restaurantServices.getRestaurants(req, (err, data) => err ? next(err) : res.render('restaurants', data))
   },
   getRestaurant: (req, res, next) => {
-    const id = req.params.id
-    return Restaurant.findByPk(id, {
-      include: [
-        Category,
-        { model: Comment, include: User },
-        { model: User, as: 'FavoritedUsers' },
-        { model: User, as: 'LikedUsers' }
-      ]
-    })
-      .then(restaurant => {
-        if (!restaurant) throw new Error('The restaurant does not exist!')
-        return restaurant.increment('viewCounts', { by: 1 })
-      })
-      .then(updatedRestaurant => {
-        const isFavorited = updatedRestaurant.FavoritedUsers.some(f => f.id === req.user.id)
-        const isLiked = updatedRestaurant.LikedUsers.some(l => l.id === req.user.id)
-        res.render('restaurant', {
-          restaurant: updatedRestaurant.toJSON(),
-          isFavorited,
-          isLiked
-        })
-      })
-      .catch(err => next(err))
+    restaurantServices.getRestaurant(req, (err, data) => err ? next(err) : res.render('restaurant', data))
   },
   getDashboard: (req, res, next) => {
     return Restaurant.findByPk(req.params.id, {
