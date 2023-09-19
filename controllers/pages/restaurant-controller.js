@@ -9,16 +9,7 @@ const restaurantController = {
     restaurantServices.getRestaurant(req, (err, data) => err ? next(err) : res.render('restaurant', data))
   },
   getDashboard: (req, res, next) => {
-    return Restaurant.findByPk(req.params.id, {
-      include: Category,
-      raw: true,
-      nest: true
-    })
-      .then(restaurant => {
-        if (!restaurant) throw new Error('The restaurant does not exist!')
-        res.render('dashboard', { restaurant })
-      })
-      .catch(err => next(err))
+    restaurantServices.getRestaurant(req, (err, data) => err ? next(err) : res.render('dashboard', data))
   },
   getFeeds: (req, res, next) => {
     return Promise.all([

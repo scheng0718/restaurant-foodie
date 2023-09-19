@@ -62,6 +62,20 @@ const restaurantServices = {
         })
       })
       .catch(err => cb(err))
+  },
+  getDashboard: (req, cb) => {
+    return Restaurant.findByPk(req.params.id, {
+      include: [
+        Category,
+        { model: Comment },
+        { model: User, as: 'LikedUsers' }
+      ]
+    })
+      .then(restaurant => {
+        if (!restaurant) throw new Error('The restaurant does not exist!')
+        return cb(null, { restaurant: restaurant.toJSON() })
+      })
+      .catch(err => cb(err))
   }
 }
 module.exports = restaurantServices
