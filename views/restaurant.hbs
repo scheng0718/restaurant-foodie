@@ -20,11 +20,11 @@
     <a class="btn btn-primary my-3" href="/restaurants/{{restaurant.id}}/dashboard">Dashboard</a>
     {{#if isFavorited }}
       <form action="/favorite/{{restaurant.id}}?_method=DELETE" method="POST" style="display: contents;">
-        <button type="submit" class="btn btn-danger">移除最愛</button>
+        <button type="submit" class="btn btn-danger">Remove</button>
       </form>
     {{else}}
       <form action="/favorite/{{restaurant.id}}" method="POST" style="display: contents;">
-        <button type="submit" class="btn btn-primary">加到最愛</button>
+        <button type="submit" class="btn btn-primary">Add to Favorite</button>
       </form>
     {{/if}}
     {{#if isLiked}}
@@ -39,7 +39,7 @@
   </div>
   <hr>
 </div>
-<h3 class="mb-3">所有評論：</h3>
+<h3 class="mb-3">All Comments: </h3>
 {{#each restaurant.Comments}}
   {{#if ../user.isAdmin}}
     <form action="/comments/{{this.id}}?_method=DELETE" method="POST" class="float-end">
@@ -55,7 +55,7 @@
 {{/each}}
 <form action="/comments" method="POST">
   <div class="form-row mb-3">
-    <label class="form-label" for="text">留下評論：</label>
+    <label class="form-label" for="text">Write your comment:</label>
     <textarea class="form-control" id="text" name="text" rows="3"></textarea>
   </div>
   <input type="hidden" name="restaurantId" value="{{restaurant.id}}" />

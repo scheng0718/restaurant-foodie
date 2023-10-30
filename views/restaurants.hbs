@@ -1,7 +1,7 @@
 {{> restaurant-tabs route='index'}}
 <ul class="nav nav-pills">
   <li class="nav-item">
-    <a class="nav-link {{#ifCond '' categoryId}}active{{/ifCond}}" href="?categoryId=">全部</a>
+    <a class="nav-link {{#ifCond '' categoryId}}active{{/ifCond}}" href="?categoryId=">All Cuisine</a>
   </li>
   {{#each categories}}
   <li class="nav-item">
@@ -30,11 +30,11 @@
         <div class="d-flex">
           {{#if isFavorited}}
             <form action="/favorite/{{this.id}}?_method=DELETE" method="POST">
-              <button type="submit" class="btn btn-danger m-1">移除最愛</button>
+              <button type="submit" class="btn btn-danger m-1">Remove</button>
             </form>
           {{else}}
             <form action="/favorite/{{this.id}}" method="POST">
-              <button type="submit" class="btn btn-primary m-1">加到最愛</button>
+              <button type="submit" class="btn btn-primary m-1">Add to Favorite</button>
             </form>
           {{/if}}
           {{#if isLiked}}

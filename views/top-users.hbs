@@ -1,5 +1,5 @@
 {{> restaurant-tabs route='topUsers'}}
-<h1>美食達人</h1>
+<h1>Hot Foodie</h1>
 <hr />
 <div class="row" style="text-align: center;">
   {{#each users}}
@@ -13,15 +13,15 @@
       {{/if}}
     </a>
     <h2>{{this.name}}</h2>
-    <span class="bg-secondary badge">追蹤人數：{{this.followerCount}}</span>
+    <span class="bg-secondary badge">Follower: {{this.followerCount}}</span>
     <p>
       {{#if this.isFollowed }}
     <form action="/following/{{this.id}}?_method=DELETE" method="POST" style="display: contents;">
-      <button type="submit" class="btn btn-danger">取消追蹤</button>
+      <button type="submit" class="btn btn-danger">Unfollow</button>
     </form>
     {{else}}
     <form action="/following/{{this.id}}" method="POST" style="display: contents;">
-      <button type="submit" class="btn btn-primary">追蹤</button>
+      <button type="submit" class="btn btn-primary">Follow</button>
     </form>
     {{/if}}
     </p>

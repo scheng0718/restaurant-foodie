@@ -9,10 +9,10 @@
       <div class="card-body">
         <h2 class="card-title">{{ user.name }}</h2>
         <p class="card-text">{{ user.email }}</p>
-        <p class="card-text">{{ user.Comments.length }} 已評論餐廳</p>
-        <p class="card-text">{{ user.FavoritedRestaurants.length }} 收藏的餐廳</p>
-        <p class="card-text">{{ user.Followings.length }} followings (追蹤者)</p>
-        <p class="card-text">{{ user.Followers.length }} followers (追隨者)</p>
+        <p class="card-text">{{ user.Comments.length }} Reviewed Restaurants </p>
+        <p class="card-text">{{ user.FavoritedRestaurants.length }} Favorite Restaurants</p>
+        <p class="card-text">{{ user.Followings.length }} followings</p>
+        <p class="card-text">{{ user.Followers.length }} followers</p>
         <div class="d-flex justify-content-start mt-3">
           <a class="btn btn-primary me-2" href="/users/{{user.id}}/edit">Edit</a>
           <a class="btn btn-outline-secondary" href="javascript:history.back()">Back</a>
@@ -26,7 +26,7 @@
   <div class="col-md-5">
     <div class="card my-3">
       <h5 class="card-header">
-        {{ user.Followings.length }} followings (追蹤者)
+        {{ user.Followings.length }} Followings
       </h5>
       <div class="card-body">
         {{#if user.Followings}}
@@ -36,14 +36,14 @@
             onload="this.style.opacity=1;"></a>
         {{/each}}
         {{else}}
-        <p>目前沒有追蹤者</p>
+        <p>No Followings</p>
         {{/if}}
       </div>
     </div>
 
     <div class="card my-3">
       <h5 class="card-header">
-        {{ user.Followers.length }} followers (追隨者)
+        {{ user.Followers.length }} Followers
       </h5>
       <div class="card-body">
         {{#if user.Followers}}
@@ -53,7 +53,7 @@
             onload="this.style.opacity=1;"></a>
         {{/each}}
         {{else}}
-        <p>目前沒有追隨者</p>
+        <p>No Followers</p>
         {{/if}}
       </div>
     </div>
@@ -61,7 +61,7 @@
   <div class="col-md-7">
     <div class="card my-3">
       <h5 class="card-header">
-        {{ user.Comments.length }} 已評論餐廳
+        {{ user.Comments.length }} Reviewed Restaurants
       </h5>
       <div class="card-body">
         {{#if user.Comments}}
@@ -71,13 +71,13 @@
             onload="this.style.opacity=1;"></a>
         {{/each}}
         {{else}}
-        <p>目前沒有評論</p>
+        <p>No Comments</p>
         {{/if}}
       </div>
     </div>
     <div class="card my-3">
       <h5 class="card-header">
-        {{ user.FavoritedRestaurants.length }} 收藏的餐廳
+        {{ user.FavoritedRestaurants.length }} Favorite Restaurants
       </h5>
       <div class="card-body">
         {{#if user.FavoritedRestaurants}}
@@ -87,7 +87,7 @@
             onload="this.style.opacity=1;"></a>
         {{/each}}
         {{else}}
-        <p>目前沒有收藏的餐廳</p>
+        <p>No Favorite Restaurants</p>
         {{/if}}
       </div>
     </div>
