@@ -2,12 +2,12 @@
 const bcrypt = require('bcryptjs')
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('Users', [{ // 一次新增三筆資料
+    await queryInterface.bulkInsert('Users', [{
       email: 'root@example.com',
       password: await bcrypt.hash('12345678', 10),
       is_admin: true,
       name: 'root',
-      image: 'https://loremflickr.com/320/240/person/?lock=81',
+      image: 'https://i.imgur.com/XPS6aDJ.jpg',
       created_at: new Date(),
       updated_at: new Date()
     }, {
@@ -15,7 +15,7 @@ module.exports = {
       password: await bcrypt.hash('12345678', 10),
       is_admin: false,
       name: 'user1',
-      image: 'https://loremflickr.com/320/240/person/?lock=81',
+      image: 'https://i.imgur.com/kHoi4uC.jpg',
       created_at: new Date(),
       updated_at: new Date()
     }, {
@@ -23,12 +23,12 @@ module.exports = {
       password: await bcrypt.hash('12345678', 10),
       is_admin: false,
       name: 'user2',
-      image: 'https://loremflickr.com/320/240/person/?lock=81',
+      image: 'https://i.imgur.com/vHIZCe7.jpg',
       created_at: new Date(),
       updated_at: new Date()
     }], {})
   },
-  down: async (queryInterface, Sequelize) => { // 清空資料表中所有資料
+  down: async (queryInterface, Sequelize) => {
     await queryInterface.bulkDelete('Users', {})
   }
 }
