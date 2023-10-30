@@ -36,7 +36,6 @@ app.use((req, res, next) => {
   next()
 })
 app.use('/api', apis)
-app.get('/', (req, res) => res.json({ status: 'success' }))
 app.use(pages)
 app.listen(port, () => {
   console.info(`Example app listening on port ${port}!`)
